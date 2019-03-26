@@ -1,8 +1,7 @@
 #Tìm số bé nhất của dãy số
-number_list = [6, -4, 4, 8, -127, 5, 7, 2, 3, 9]
+number_list = [6, 4, 8, 5, 7, 2, 3, 9, 199, 20004, 24]
 
 def find_lowest(lst):
-    """Return the lowest positive number in a list."""
     def lowest(first, rest):
         # Base case
         if len(rest) == 0:
@@ -47,12 +46,11 @@ n=int(input("Nhập số n: "))
 print (f(n))
 
 #Đảo ngược 1 dãy số
-def reverse(q):
-    if len(q) != 0:
-        temp = q.pop(0)
-        reverse(q)
-        q.append(temp)
-    return q
+def reverse(alist):
+    if len(alist) == 0:
+        return alist
+    else:
+        return alist[-1:] + reverse(alist[:-1])
 
 print(reverse(number_list))
 
