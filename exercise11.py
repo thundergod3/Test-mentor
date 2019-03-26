@@ -1,7 +1,20 @@
 #Tìm số bé nhất của dãy số
+number_list = [6, -4, 4, 8, -127, 5, 7, 2, 3, 9]
 
-NumerList = [10,-22,200,124125,12]
-print(min(NumerList))
+def find_lowest(lst):
+    """Return the lowest positive number in a list."""
+    def lowest(first, rest):
+        # Base case
+        if len(rest) == 0:
+            return first
+        if first > rest[0] or first < 0:
+            return lowest(rest[0], rest[1:])
+        else:
+            return lowest(first, rest[1:])
+    return lowest(lst[0], lst[1:])
+
+
+print(find_lowest(number_list))
 
 #Tìm giai thừa
 Input = int(input('Nhập số cần tính giai thừa'))
@@ -34,11 +47,21 @@ n=int(input("Nhập số n: "))
 print (f(n))
 
 #Đảo ngược 1 dãy số
-for i in reversed(NumerList):
-    print(i)
+def reverse(q):
+    if len(q) != 0:
+        temp = q.pop(0)
+        reverse(q)
+        q.append(temp)
+    return q
+
+print(reverse(number_list))
 
 #Đảo ngược 1 dãy string
 
-s = 'hello world'
-s = s[::-1]
-print(s)
+def rreverse(s):
+    if s == "":
+        return s
+    else:
+        return rreverse(s[1:]) + s[0]
+
+print(rreverse('hello world'))
